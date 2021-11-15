@@ -23,7 +23,7 @@ namespace ServerConfigForm_P5_20190140035
         private void buttonOn_Click(object sender, EventArgs e)
         {
             Host = new ServiceHost(typeof(Matematika));
-
+            Host.Open();
             labelOnOrOff.Text = "Server ON";
             labelKet.Text = "Klik OFF untuk Mematikan Server";
             buttonOn.Enabled = false;
@@ -34,6 +34,7 @@ namespace ServerConfigForm_P5_20190140035
         {
             buttonOn.Enabled = true;
             buttonOff.Enabled = false;
+            Host.Close();
             labelOnOrOff.Text = "Server OFF";
             labelKet.Text = "Klik ON untuk Menjalankan Server";
         }
